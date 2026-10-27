@@ -75,6 +75,15 @@ jobs:
       - name: Build RockBase NM-CYD-C5 (ESP32-C5)
         run: pio run -e nm-cyd-c5
 
+      - name: Build Waveshare ESP32-C5 3.5"
+        run: pio run -e waveshare-c5-35
+
+      - name: Upload Waveshare Firmware Binaries
+        uses: actions/upload-artifact@v4
+        with:
+          name: waveshare-c5-35-firmware
+          path: .pio/build/waveshare-c5-35/*.bin
+
       # The Marauder V8: the same C5 platform, so no new toolchain.
       - name: Build Marauder V8 (ESP32-C5)
         run: pio run -e marauder-v8
