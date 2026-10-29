@@ -28,18 +28,12 @@
 // TFT SPI bus. The shared TFT_eSPI config therefore does not define TOUCH_CS.
 // The app-side I2C touch code uses TOUCH_SDA/TOUCH_SCL/TOUCH_INT instead.
 
-// Backlight is not wired through a GPIO on this panel's board config, so leave it
-// disabled here and let the app handle LEDs separately if needed.
 #define TFT_BACKLIGHT_ON HIGH
-
-// Use the same conservative SPI timing as the other ST7796 boards in this repo.
 #ifndef SPI_FREQUENCY
 #define SPI_FREQUENCY      40000000
 #endif
 #define SPI_READ_FREQUENCY 20000000
 
-// Load the built-in fonts used by the app. This keeps the TFT_eSPI setup aligned
-// with the assumptions already made in the project build flags.
 #define LOAD_GLCD
 #define LOAD_FONT2
 #define LOAD_FONT4
@@ -49,8 +43,7 @@
 #define LOAD_GFXFF
 #define SMOOTH_FONT
 
-// Common ST7796 polarity choice for these panels. If the panel shows inverted
-// colours or a blank image after the app boots, the actual runtime override is in
-// the app code and can be adjusted there.
 #define TFT_INVERSION_ON
 #define TFT_RGB_ORDER TFT_BGR
+
+#warning "Waveshare C5 3.5 setup loaded"
